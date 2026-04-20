@@ -25,15 +25,21 @@ GitHub Pages guide: https://docs.github.com/en/pages
 
 ## Step 2: Add Your Best Projects
 
-The homepage includes featured cards for these recommended projects:
+The homepage now includes featured cards for:
 
-- Mood Playlist App
+- The Intel Website Localization
 - Charity: Water Project
-- API Fetch Project
+- Personal Project Site
+- L'Oreal Routine Builder
+
+Each project card includes:
+
+- `View Repo` (GitHub repository)
+- `View Website` (live project site)
 
 ### What to update next
 
-1. Replace each `Add project link` placeholder with the real project URL in `index.html`.
+1. Confirm each `View Website` URL is correct for your deployed project.
 2. Optionally add screenshots or case study pages for each project.
 3. Commit and push changes to republish automatically.
 
