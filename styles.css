@@ -1,0 +1,207 @@
+:root {
+  --bg: #f5f1e8;
+  --ink: #1f1c1b;
+  --accent: #f15a29;
+  --accent-2: #1b9aaa;
+  --card-bg: rgba(255, 255, 255, 0.76);
+  --card-border: rgba(31, 28, 27, 0.15);
+  --shadow: 0 24px 50px rgba(25, 22, 20, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(241, 90, 41, 0.26), transparent 48%),
+    radial-gradient(circle at 88% 8%, rgba(27, 154, 170, 0.24), transparent 42%),
+    linear-gradient(130deg, #faf7f2, var(--bg) 48%, #ece4d5 100%);
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  padding: 2.5rem 1.25rem 2.75rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.ambient {
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  z-index: -1;
+  opacity: 0.38;
+  filter: blur(4px);
+  border-radius: 44% 56% 38% 62% / 67% 35% 65% 33%;
+  animation: drift 16s ease-in-out infinite;
+}
+
+.ambient-left {
+  left: -110px;
+  bottom: -92px;
+  background: linear-gradient(140deg, #f15a29, #ffc94a);
+}
+
+.ambient-right {
+  right: -106px;
+  top: -100px;
+  background: linear-gradient(220deg, #1b9aaa, #74e8d5);
+  animation-delay: 2.8s;
+}
+
+.hero,
+.projects,
+footer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero {
+  padding-top: 1rem;
+  animation: rise 0.9s ease-out both;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #5b524f;
+}
+
+h1 {
+  margin: 0.4rem 0 0;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.03em;
+  font-size: clamp(2.85rem, 8vw, 6.25rem);
+  line-height: 0.96;
+}
+
+.subtitle {
+  max-width: 60ch;
+  margin: 1rem 0 1.6rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #3f3836;
+}
+
+.cta {
+  display: inline-block;
+  text-decoration: none;
+  color: #101010;
+  font-weight: 700;
+  background: linear-gradient(95deg, var(--accent), #ff9a4a);
+  border: 1px solid rgba(16, 16, 16, 0.35);
+  border-radius: 999px;
+  padding: 0.76rem 1.2rem;
+  box-shadow: 0 10px 20px rgba(241, 90, 41, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(241, 90, 41, 0.28);
+}
+
+.projects {
+  margin-top: 3rem;
+}
+
+h2 {
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 1rem 1rem 1.12rem;
+  backdrop-filter: blur(7px);
+  box-shadow: var(--shadow);
+  animation: rise 0.75s ease-out both;
+  animation-delay: var(--delay);
+}
+
+.card .tag {
+  margin: 0;
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.card h3 {
+  margin: 0.45rem 0 0.6rem;
+  font-size: 1.35rem;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.55;
+  color: #2d2927;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: #141312;
+  font-weight: 700;
+  text-underline-offset: 2px;
+}
+
+footer {
+  margin-top: 2.5rem;
+  color: #5b5451;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-top: 1.9rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(8px, -10px, 0) rotate(6deg);
+  }
+}
